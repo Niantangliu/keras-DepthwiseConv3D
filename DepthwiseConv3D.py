@@ -156,7 +156,7 @@ class DepthwiseConv3D(Conv3D):
         self.depthwise_regularizer = regularizers.get(depthwise_regularizer)
         self.depthwise_constraint = constraints.get(depthwise_constraint)
         self.bias_initializer = initializers.get(bias_initializer)
-        self.dilation_rate = dilation_rate
+        self.dilation_rate = tuple(dilation_rate)
         self._padding = _preprocess_padding(self.padding)
         self._strides = (1,) + self.strides + (1,)
         self._data_format = "NDHWC"
